@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Definition Buddy</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f0f0f0;
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+      form {
+        margin: 20px 0;
+        text-align: center;
+      }
+      input[type="text"] {
+        padding: 8px;
+        width: 70%;
+        font-size: 16px;
+      }
+      input[type="submit"] {
+        padding: 8px 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      .result {
+        background-color: white;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        white-space: pre-wrap; /* Preserve line breaks */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Word Definition Buddy</h1>
+    <p>Type a word below to get a friendly explanation!</p>
+
+    <form method="POST">
+      <input
+        type="text"
+        name="word"
+        placeholder="Enter a word"
+        value="{{ word or '' }}"
+      />
+      <input type="submit" value="Get Definition" />
+    </form>
+
+    {% if definition %}
+    <div class="result">
+      <strong>Definition of '{{ word }}':</strong>
+      <p>{{ definition }}</p>
+    </div>
+    {% endif %}
+  </body>
+</html>
